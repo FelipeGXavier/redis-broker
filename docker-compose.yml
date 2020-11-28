@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  producer:
+    build:
+      context: producer/
+    network_mode: "host"
+  consumer:
+    build:
+      context: consumer/
+    network_mode: "host"
+  broker:
+    container_name: broker
+    image: redis
+    network_mode: "host"
+    ports: 
+      - "6379:6379"
+
