@@ -1,12 +1,12 @@
 version: "3.7"
 services:
-  producer:
+  publisher:
     build:
-      context: producer/
+      context: publisher/
     network_mode: "host"
-  consumer:
+  subscriber:
     build:
-      context: consumer/
+      context: subscriber/
     network_mode: "host"
   broker:
     container_name: broker
