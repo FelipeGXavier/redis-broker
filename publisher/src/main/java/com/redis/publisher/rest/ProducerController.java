@@ -24,7 +24,7 @@ public class ProducerController {
     @PostMapping
     public ResponseEntity<String> publishEntity(@RequestBody DummyRequest request) {
         this.entityPublisher.send(request);
-        var response = "{\"success\": true, \"message\": \"Event %s was sent to redis queue\"}";
+        var response = "{\"success\": true, \"message\": \"Event %s was sent to redis\"}";
         response = String.format(response, request.getUuid());
         return ResponseEntity.ok(response);
     }
@@ -36,7 +36,7 @@ public class ProducerController {
         for (var i = 0; i < size; i++) {
             this.messagePublisher.send(faker.name().name() + " #" + i);
         }
-        var response = "{\"success\": true, \"message\": \"Messages was sent to redis queue\"}";
+        var response = "{\"success\": true, \"message\": \"Messages was sent to redis\"}";
         return ResponseEntity.ok(response);
     }
 }
